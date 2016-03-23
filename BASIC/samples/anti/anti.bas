@@ -84,7 +84,9 @@ End Sub
 
 
 'ScreenRes 600,600, 32, 1, &H40
-ScreenRes 800,600, 32, 1, &H40
+'ScreenRes 800,600, 32, 1, &H40
+ScreenRes 640,480, 32, 1, &H40
+
 Randomize Timer
 
 Line (0,0)-(600,600),RGBA(255,255,255,255),BF
@@ -97,7 +99,7 @@ Print "Press any key to draw a continuous curve"
 Sleep
 Line (0,0)-(600,600),RGBA(255,255,255,255),BF
 tim = Timer
-For i As Integer = 0 To 20
+For i As Integer = 0 To 10
     cy = 600 * Rnd
     cx = 600 * Rnd
     ctx = (200 * Rnd) - 100
@@ -112,7 +114,7 @@ Print "Time: " & Timer - tim
 Print "Press any key to draw 50 antialiased bezier curves of various widths, colors, and alphas."
 Sleep
 Line (0,0)-(600,600),RGBA(255,255,255,255),BF
-For i As Integer = 0 To 50
+For i As Integer = 0 To 20
     RenderBezier (type<TPoint>(600*Rnd,600*Rnd), type<TPoint>(600*Rnd,600*Rnd), type<TPoint>(600*Rnd,600*Rnd), type<TPoint>(600*Rnd,600*Rnd), _
                     1+(2*Rnd), 255*Rnd, 255*Rnd, 255*Rnd, 155+(100*Rnd))
 Next i
